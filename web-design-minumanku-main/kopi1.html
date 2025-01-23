@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- My Css -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Minumanku | Detail Products</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="" style="width: 140px" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <form class="d-flex nav-link" style="width: 320px">
+                <input class="form-control" type="search" placeholder="Cari produk" aria-label="Search" />
+                <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </li>
+            <li class="ms-2 nav-item">
+              <a href="cart.html" class="nav-link cart my-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
+                </svg>
+
+              </a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link dropdown">
+                <a class="profile-user" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                  </svg>
+                </a>
+                <span class="name-profile">User</span>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <section class="breadcrumbs">
+      <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="products.html">Produk</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detail</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+    <!-- Breadcrumbs Akhir -->
+
+    <!-- Single Product -->
+    <section class="single-product p-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <figure class="figure">
+              <img src="img/product/mocca.jpg" class="figure-img img-fluid" />
+            </figure>
+          </div>
+
+          <script>
+            function tambah() {
+              let jumlah = parseInt(document.getElementById('jumlah').innerText);
+              jumlah++;
+              document.getElementById('jumlah').innerText = jumlah;
+            }
+
+            function kurang() {
+              let jumlah = parseInt(document.getElementById('jumlah').innerText);
+              if (jumlah > 0) {
+                jumlah--;
+                document.getElementById('jumlah').innerText = jumlah;
+              }
+            }
+            
+          </script>
+          <div class="col-lg-3 py-5">
+            <h3 id="product-name">Ice Mocca Latte</h3>
+            <p>Price: <span id="product-price">Rp 15.000</span></p>
+            <div class="pt-2">
+              <button type="button" class="btn btn-minus btn-sm btn-secondary" onclick="kurang()"><i class="bi bi-dash-circle"></i></button>
+              <span id="jumlah" class="mx-2">0</span>
+              <button type="button" class="btn btn-plus btn-sm btn-success text-white" onclick="tambah()"><i class="bi bi-plus-circle"></i></button>
+            </div>
+            <div class="btn-product">
+              <button class="add-to-cart-btn" data-name="Blood Mojito" data-price="8000" onclick="addToCart()">Tambah ke Keranjang</button>
+            </div>
+          </div>
+          <script>
+            function addToCart() {
+              const productName = document.getElementById('product-name').innerText;
+              const productPrice = document.getElementById('product-price').innerText.replace('Rp ', '').replace('.', '');
+              const productImage = document.querySelector('.figure-img').src;
+
+              const product = {
+                name: productName,
+                price: parseInt(productPrice),
+                image: productImage,
+                quantity: parseInt(document.getElementById('jumlah').innerText)
+              };
+
+              let cart = JSON.parse(localStorage.getItem('cart')) || [];
+              const existingProductIndex = cart.findIndex(item => item.name === product.name);
+
+              if (existingProductIndex !== -1) {
+                cart[existingProductIndex].quantity += product.quantity;
+              } else {
+                cart.push(product);
+              }
+
+              localStorage.setItem('cart', JSON.stringify(cart));
+              alert(productName + ' telah ditambahkan ke keranjang');
+            }
+          </script>
+
+            <div class="btn-product">
+              
+            </div>
+            <hr />
+            <div class="product-by pt-3">
+              <h6>Product by</h6>
+              <div class="row">
+                <div class="col">
+                  <h5>Revive Rush N Co</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Single Akhir -->
+
+    <!-- Product Description & Review -->
+    <section class="product-description p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Deskripsi Produk</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Reviews (8)</button>
+              </li>
+            </ul>
+            <div class="tab-content p-3" id="myTabContent">
+              <div class="tab-pane fade product-review show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <p>
+                  Iced mocha latte adalah versi musim panas yang nikmat dari favorit kedai kopi klasik. Bayangkan kesegaran yang menepis panas, di mana espresso yang kuat berpadu dengan susu dingin yang creamy dan lelehan cokelat yang mewah.
+                  Saus moka yang manis membius indera Anda, menciptakan perpaduan rasa yang nikmat antara kopi yang kaya dan cokelat yang lembut. Ditambah dengan whipped cream di atasnya, minuman dingin ini memanjakan lidah dan menyejukkan mata - cocok untuk Anda yang menginginkan kopi cokelat dingin yang menyegarkan.
+                </p>
+                <p>
+                  Dihiasi dengan whipped cream yang lembut, iced mocha latte tak hanya memanjakan lidah tetapi juga mata. Setiap tegukan bagaikan petualangan rasa yang tak terduga, membawa Anda dalam perjalanan dari rasa kopi yang pahit namun memikat hingga sensasi cokelat yang manis dan lembut. 
+                  Bagi pecinta kopi yang ingin sensasi dingin dan creamy dengan sentuhan rasa cokelat yang memanjakan, iced mocha latte adalah pilihan yang sempurna. Minuman ini siap menemani Anda di siang hari yang terik, memberikan energi dan semangat baru untuk menjalani hari.
+                </p>
+              </div>
+              <div class="tab-pane fade product-review" id="review" role="tabpanel" aria-labelledby="review-tab">
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile1.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>Jessica Heart</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile2.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>andrew tate</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile3.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>John Walker</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile4.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>Diana Boston</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile1.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>Jessica Heart</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile2.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>Bambang Satrio</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile3.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>John Walker</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1 d-none d-md-block">
+                    <img src="img/user/profile4.png" alt="" />
+                  </div>
+                  <div class="col">
+                    <h5>Diana Boston</h5>
+                    <p>Produknya bagus, minumanya pas banget untuk dinikmatin</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Product Description & Review -->
+
+    <!-- Product Similar -->
+    <div class="similar-product p-5">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col">
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <figure>
+              <div class="figure-img">
+                </a>
+              </div>
+              <figcaption>
+            </figure>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <figure>
+              <div class="figure-img">
+                </a>
+              </div>
+              <figcaption>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <figure>
+              <div class="figure-img">
+              </div>
+              <figcaption>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <figure>
+              <div class="figure-img">
+              
+              </div>
+              <figcaption>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <figure>
+              <div class="figure-img">
+              </div>
+              <figcaption>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <figure>
+              <div class="figure-img">
+              </div>
+              <figcaption>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Product Akhir -->
+
+    <!-- Schedule -->
+    <section class="schedule">
+      <div class="container">
+        <div class="row p-5 text-center">
+          <div class="col-md">
+            <img src="img/icon/1.png" class="img-fluid" />
+          </div>
+          <div class="col-md">
+            <img src="img/icon/2.png" class="img-fluid" />
+          </div>
+          <div class="col-md">
+            <img src="img/icon/3.png" class="img-fluid" />
+          </div>
+          <div class="col-md">
+            <img src="img/icon/4.png" class="img-fluid" />
+          </div>
+          <div class="col-md">
+            <img src="img/icon/5.png" class="img-fluid" />
+          </div>
+        </div>
+        <div class="row text-center pb-5 justify-content-center">
+          <div class="card col-9 col-sm-4 col-md-6 col-lg-4">
+            <div class="card-body">Belanja Sekarang dan langsung dikirim hari ini</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Schedule Akhir -->
+
+    <!-- footer -->
+    <footer class="p-5">
+      <div class="container">
+        <div class="row d-flex py-2 justify-content-end border-bottom">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-3">
+            <ul class="nav justify-content-end">
+              <p>Ingin lebih dekat dengan kami</p>
+            </ul>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <ul class="nav justify-content-end">
+              <a href="https://www.instagram.com/reviverush.nco/">
+                <img src="img/social/ig.png" alt="" />
+              </a>
+              <a href="https://wa.me/6281276076795">
+                <img src="img/social/wa.png" alt="" />
+              </a>
+              <a href="">
+                <img src="img/social/twitter.png" alt="" />
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-3 justify-content-between">
+          <div class="col-5">
+            <p>Sengsel Copyright 2024</p>
+          </div>
+          <div class="col-7">
+            <ul class="nav justify-content-end text-uppercase">
+              <a class="nav-link" href="#">Jobs</a>
+              <a class="nav-link" href="#">Developer</a>
+              <a class="nav-link" href="#">Terms</a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Akhir -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  </body>
+</html>
